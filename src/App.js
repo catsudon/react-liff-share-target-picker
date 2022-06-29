@@ -147,11 +147,11 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <main className="App">
       <section>
         { ref == '0' ? "please wait . . ." : "ref : " + ref}
       </section>
-    </div>
+    </main>
   );
 }
 
