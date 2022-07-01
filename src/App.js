@@ -27,17 +27,46 @@ const App = () => {
     callBackend()
   }, [uid])
 
-  // React.useEffect(() => {
+  React.useEffect(() => {
 
-  //   liff.shareTargetPicker([
-  //     {
-  //       "type" : "text",
-  //       "text" : "test"
-  //     }
-  //   ])
-  //     .then(result => alert(result.status))
-  //     .then(setInvitationReady("Invitation Sent!"))
-  // }, [ref])
+    liff.shareTargetPicker([
+      {
+        "type": "flex",
+        "altText": "share",
+        "contents": {
+          "type": "bubble",
+          "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "3:2",
+            "aspectMode": "cover",
+            "url": "https://images2.imgbox.com/11/33/zNWcdCmr_o.png"
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "button",
+                "style": "primary",
+                "height": "sm",
+                "action": {
+                  "type": "uri",
+                  "label": "แอดเลย",
+                  "uri": "https://liff.line.me/1657084978-W5NaqyDN?refer="+ref
+                },
+                "color": "#E6564E"
+              }
+            ],
+            "flex": 0
+          }
+        }
+      }
+    ])
+      .then(result => alert(result.status))
+      .then(setInvitationReady("Invitation Sent!"))
+  }, [ref])
 
   const initializeLiff = () => {
     liff
@@ -120,7 +149,7 @@ const App = () => {
     <main className="App">
       <section>
         {ref == '0' ? "please wait . . ." : {invitationReady}}
-        {uid == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : uid}
+        {uid == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""}
       </section>
     </main>
   );
