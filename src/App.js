@@ -28,7 +28,7 @@ const App = () => {
   }, [uid])
 
   React.useEffect(() => {
-    if(ref != "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู")
+    if(ref != "-1")
     liff.shareTargetPicker([
       {
         "type": "flex",
