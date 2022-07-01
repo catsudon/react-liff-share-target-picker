@@ -28,7 +28,6 @@ const App = () => {
   }, [uid])
 
   React.useEffect(() => {
-    alert("test")
     liff.shareTargetPicker([
       {
         "type": "flex",
@@ -65,7 +64,6 @@ const App = () => {
       }
     ])
       .then(result => alert(result.status))
-      .then(setInvitationReady("Invitation Sent!"))
   }, [ref])
 
   const initializeLiff = () => {
@@ -81,7 +79,6 @@ const App = () => {
   }
 
   const callBackend = () => {
-
     fetch("https://speedkub-line-bot-3kuvjve3ma-et.a.run.app/share?userID=" + uid)
       .then(r => r.json())
       .then(result => setRef(result['refer']))
@@ -148,7 +145,7 @@ const App = () => {
   return (
     <main className="App">
       <section>
-        {ref == '0' ? "please wait . . ." : {invitationReady}}
+        {"please wait . . ." }
         {uid == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""}
       </section>
     </main>
