@@ -66,6 +66,7 @@ const App = () => {
     ])
       .then(result => alert(result.status))
       .then(setMessageSent("Message Sent!"))
+    else setMessageSent("กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู")
   }, [ref])
 
   const initializeLiff = () => {
@@ -148,7 +149,7 @@ const App = () => {
     <main className="App">
       <section>
         { ref == 0 ? "please wait . . ." : ""}
-        { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""}
+        {/* { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""} */}
         { messageSent}
       </section>
     </main>
