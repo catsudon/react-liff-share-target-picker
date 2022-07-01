@@ -18,17 +18,22 @@ const App = () => {
   const [ref, setRef] = React.useState('0')
   const [messageSent, setMessageSent] = React.useState("")
   const firstUpdate = React.useRef(true);
-
+  const firstUpdateCall = React.useRef(true);
+  
   React.useEffect(() => {
     initializeLiff()
     console.log("init")
   }, [])
 
   React.useEffect(() => {
-    callBackend()
+    if (firstUpdateCall.current) {
+      firstUpdateCall.current = false;
+      return;
+    }
+    else callBackend()
   }, [uid])
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
