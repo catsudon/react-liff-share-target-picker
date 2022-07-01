@@ -16,6 +16,7 @@ const App = () => {
   const [profile, setProfile] = React.useState('')
   const [uid, setUid] = React.useState('0')
   const [ref, setRef] = React.useState('0')
+  const [invitationReady, setInvitationReady] = React.useState("invitation is ready to be send.")
 
 
   React.useEffect(() => {
@@ -64,6 +65,7 @@ const App = () => {
       }
     ])
       .then(result => alert(result.status))
+      .then(setInvitationReady("Invitation Sent!"))
   }, [ref])
 
   const initializeLiff = () => {
@@ -146,7 +148,7 @@ const App = () => {
   return (
     <main className="App">
       <section>
-        {ref == '0' ? "please wait . . ." : "invitation is ready to be send."}
+        {ref == '0' ? "please wait . . ." : {invitationReady}}
       </section>
     </main>
   );
