@@ -34,34 +34,31 @@ const App = () => {
         "altText": "share",
         "contents": {
           "type": "bubble",
-          "direction": "ltr",
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "*ข้อความชวนให้สมัคร*",
-                "align": "center",
-                "contents": []
-              }
-            ]
+          "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "3:2",
+            "aspectMode": "cover",
+            "url": "https://i.imgur.com/clsZHDN.png"
           },
           "footer": {
             "type": "box",
-            "layout": "horizontal",
+            "layout": "vertical",
+            "spacing": "sm",
             "contents": [
               {
                 "type": "button",
+                "style": "primary",
+                "height": "sm",
                 "action": {
                   "type": "uri",
-                  "label": "สมัคร",
+                  "label": "แอดเลย",
                   "uri": "https://liff.line.me/1657084978-W5NaqyDN?refer="+ref
                 },
-                "color": "#322D2DFF",
-                "style": "primary"
+                "color": "#E6564E"
               }
-            ]
+            ],
+            "flex": 0
           }
         }
       }
@@ -149,7 +146,7 @@ const App = () => {
   return (
     <main className="App">
       <section>
-        { ref == '0' ? "please wait . . ." : "ref : " + ref}
+        {ref == '0' ? "please wait . . ." : "invitation is ready to be send."}
       </section>
     </main>
   );
