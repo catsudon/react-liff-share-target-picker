@@ -17,7 +17,7 @@ const App = () => {
   const [uid, setUid] = React.useState('0')
   const [ref, setRef] = React.useState('0')
   const [messageSent, setMessageSent] = React.useState("")
-
+  const didMount = React.useRef(false);
 
   React.useEffect(() => {
     initializeLiff()
@@ -28,45 +28,50 @@ const App = () => {
   }, [uid])
 
   React.useEffect(() => {
-    liff.shareTargetPicker([
-      {
-        "type": "flex",
-        "altText": "share",
-        "contents": {
-          "type": "bubble",
-          "hero": {
-            "type": "image",
-            "size": "full",
-            "aspectRatio": "3:2",
-            "aspectMode": "cover",
-            "url": "https://images2.imgbox.com/11/33/zNWcdCmr_o.png"
-          },
-          "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "action": {
-                  "type": "uri",
-                  "label": "แอดเลย",
-                  "uri": "https://liff.line.me/1657084978-W5NaqyDN?refer="+ref
-                },
-                "color": "#E6564E"
-              }
-            ],
-            "flex": 0
+    if (didMount.current) {
+      liff.shareTargetPicker([
+        {
+          "type": "flex",
+          "altText": "share",
+          "contents": {
+            "type": "bubble",
+            "hero": {
+              "type": "image",
+              "size": "full",
+              "aspectRatio": "3:2",
+              "aspectMode": "cover",
+              "url": "https://images2.imgbox.com/11/33/zNWcdCmr_o.png"
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "แอดเลย",
+                    "uri": "https://liff.line.me/1657084978-W5NaqyDN?refer="+ref
+                  },
+                  "color": "#E6564E"
+                }
+              ],
+              "flex": 0
+            }
           }
         }
-      }
-    ])
-      .then(result => alert(result.status))
-      .then(() => setMessageSent("Message Sent!"))
-  }, [ref])
+      ])
+        .then(result => alert(result.status))
+        .then(() => setMessageSent("Message Sent!"))
+    } else {
+      didMount.current = true;
+    }
+  }, [ref]);
 
+  
   const initializeLiff = () => {
     liff
       .init({
@@ -149,7 +154,8 @@ const App = () => {
         {/* { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""} */}
         { messageSent == "Message Sent!" ? messageSent : 
                                 ref == 0 ? "please wait . . ." : 
-                                "Message ready to send! \nrefer code :" + ref + "\n"}
+                                "refer code :" + ref}
+        
       </section>
     </main>
   );
