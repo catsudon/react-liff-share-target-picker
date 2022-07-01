@@ -146,7 +146,7 @@ const App = () => {
   return (
     <main className="App">
       <section>
-        { ref == 0 ? "please wait . . ." : "refer code :" + ref}
+        { ref == 0 ? "please wait . . ." : "refer code :" + ref + "\n"}
         {/* { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""} */}
         { messageSent}
       </section>
