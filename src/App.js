@@ -40,7 +40,7 @@ const App = () => {
             "size": "full",
             "aspectRatio": "3:2",
             "aspectMode": "cover",
-            "url": "https://i.imgur.com/clsZHDN.png"
+            "url": "https://images2.imgbox.com/11/33/zNWcdCmr_o.png"
           },
           "footer": {
             "type": "box",
