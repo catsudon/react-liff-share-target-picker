@@ -16,7 +16,7 @@ const App = () => {
   const [profile, setProfile] = React.useState('')
   const [uid, setUid] = React.useState('0')
   const [ref, setRef] = React.useState('0')
-  const [invitationReady, setInvitationReady] = React.useState("invitation is ready to be send.")
+  const [messageSent, setMessageSent] = React.useState("")
 
 
   React.useEffect(() => {
@@ -28,6 +28,7 @@ const App = () => {
   }, [uid])
 
   React.useEffect(() => {
+    if(ref != "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู")
     liff.shareTargetPicker([
       {
         "type": "flex",
@@ -64,6 +65,7 @@ const App = () => {
       }
     ])
       .then(result => alert(result.status))
+      .then(setMessageSent("Message Sent!"))
   }, [ref])
 
   const initializeLiff = () => {
@@ -145,8 +147,9 @@ const App = () => {
   return (
     <main className="App">
       <section>
-        {"please wait . . ." }
-        {uid == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""}
+        { ref == 0 ? "please wait . . ." : ""}
+        { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""}
+        { messageSent}
       </section>
     </main>
   );
