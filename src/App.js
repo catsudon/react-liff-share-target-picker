@@ -83,7 +83,7 @@ const App = () => {
 
   const callBackend = () => {
 
-    fetch("https://speedkub-backend-dev-n2sgktcxxa-as.a.run.app/share?userID=" + uid)
+    fetch("https://speedkub-line-bot-3kuvjve3ma-et.a.run.app/share?userID=" + uid)
       .then(r => r.json())
       .then(result => setRef(result['refer']))
   }
