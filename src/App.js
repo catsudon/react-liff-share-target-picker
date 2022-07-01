@@ -27,17 +27,17 @@ const App = () => {
     callBackend()
   }, [uid])
 
-  React.useEffect(() => {
+  // React.useEffect(() => {
 
-    liff.shareTargetPicker([
-      {
-        "type" : "text",
-        "text" : "test"
-      }
-    ])
-      .then(result => alert(result.status))
-      .then(setInvitationReady("Invitation Sent!"))
-  }, [ref])
+  //   liff.shareTargetPicker([
+  //     {
+  //       "type" : "text",
+  //       "text" : "test"
+  //     }
+  //   ])
+  //     .then(result => alert(result.status))
+  //     .then(setInvitationReady("Invitation Sent!"))
+  // }, [ref])
 
   const initializeLiff = () => {
     liff
