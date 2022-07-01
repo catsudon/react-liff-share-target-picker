@@ -120,7 +120,7 @@ const App = () => {
     <main className="App">
       <section>
         {ref == '0' ? "please wait . . ." : {invitationReady}}
-        {uid == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""}
+        {uid == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : uid}
       </section>
     </main>
   );
