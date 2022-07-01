@@ -17,10 +17,11 @@ const App = () => {
   const [uid, setUid] = React.useState('0')
   const [ref, setRef] = React.useState('0')
   const [messageSent, setMessageSent] = React.useState("")
-  const didMount = React.useRef(false);
+  const firstUpdate = React.useRef(true);
 
   React.useEffect(() => {
     initializeLiff()
+    console.log("init")
   }, [])
 
   React.useEffect(() => {
@@ -28,7 +29,11 @@ const App = () => {
   }, [uid])
 
   React.useEffect(() => {
-    if (didMount.current) {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    else {
       liff.shareTargetPicker([
         {
           "type": "flex",
@@ -54,7 +59,7 @@ const App = () => {
                   "action": {
                     "type": "uri",
                     "label": "แอดเลย",
-                    "uri": "https://liff.line.me/1657084978-W5NaqyDN?refer="+ref
+                    "uri": "https://liff.line.me/1657084978-W5NaqyDN?refer=" + ref
                   },
                   "color": "#E6564E"
                 }
@@ -66,12 +71,10 @@ const App = () => {
       ])
         .then(result => alert(result.status))
         .then(() => setMessageSent("Message Sent!"))
-    } else {
-      didMount.current = true;
     }
   }, [ref]);
 
-  
+
   const initializeLiff = () => {
     liff
       .init({
@@ -152,10 +155,10 @@ const App = () => {
     <main className="App">
       <section>
         {/* { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""} */}
-        { messageSent == "Message Sent!" ? messageSent : 
-                                ref == 0 ? "please wait . . ." : 
-                                "refer code :" + ref}
-        
+        {messageSent == "Message Sent!" ? messageSent :
+          ref == 0 ? "please wait . . ." :
+            "refer code :" + ref}
+
       </section>
     </main>
   );
