@@ -28,7 +28,7 @@ const App = () => {
   }, [uid])
 
   React.useEffect(() => {
-
+    alert("test")
     liff.shareTargetPicker([
       {
         "type": "flex",
