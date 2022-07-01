@@ -28,7 +28,6 @@ const App = () => {
   }, [uid])
 
   React.useEffect(() => {
-    if(ref != "-1")
     liff.shareTargetPicker([
       {
         "type": "flex",
@@ -66,7 +65,6 @@ const App = () => {
     ])
       .then(result => alert(result.status))
       .then(() => setMessageSent("Message Sent!"))
-    else setMessageSent(ref)
   }, [ref])
 
   const initializeLiff = () => {
@@ -148,7 +146,7 @@ const App = () => {
   return (
     <main className="App">
       <section>
-        { ref == 0 ? "please wait . . ." : ""}
+        { ref == 0 ? "please wait . . ." : "refer code :" + ref}
         {/* { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""} */}
         { messageSent}
       </section>
