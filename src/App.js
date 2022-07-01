@@ -149,7 +149,7 @@ const App = () => {
         {/* { ref == "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" ? "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" : ""} */}
         { messageSent == "Message Sent!" ? messageSent : 
                                 ref == 0 ? "please wait . . ." : 
-                                "refer code :" + ref + "\n"}
+                                "Message ready to send! \nrefer code :" + ref + "\n"}
       </section>
     </main>
   );
