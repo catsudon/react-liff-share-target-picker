@@ -66,7 +66,7 @@ const App = () => {
     ])
       .then(result => alert(result.status))
       .then(() => setMessageSent("Message Sent!"))
-    else setMessageSent("กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู")
+    else setMessageSent(ref)
   }, [ref])
 
   const initializeLiff = () => {
