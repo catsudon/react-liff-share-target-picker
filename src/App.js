@@ -42,7 +42,7 @@ const App = () => {
       liff.shareTargetPicker([
         {
           "type": "flex",
-          "altText": "share",
+          "altText": "Speedkub ร่วมแจก 300 popcoin ในแคมเปญ friend get friend",
           "contents": {
             "type": "bubble",
             "hero": {
