@@ -38,7 +38,7 @@ const App = () => {
       firstUpdate.current = false;
       return;
     }
-    else {
+    else if(ref != "กรุณาผูกไลน์กับspeedkubก่อน คุณสามารถผูกได้ที่เมนู" && ref != "เซสชั่นหมดอายุ กรุณาผูกไลน์กับspeedkubใหม่") {
       liff.shareTargetPicker([
         {
           "type": "flex",
